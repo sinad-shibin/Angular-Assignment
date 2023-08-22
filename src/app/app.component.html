@@ -1,0 +1,119 @@
+<nav>
+  <h2>POOLCARZ</h2>
+  <a href="">Logout</a>
+</nav>
+<div class="container">
+  <div class="container2">
+    <h2
+      class="text-center"
+      style="background-color: #252b48; color: #f7e987; padding: 5px"
+    >
+      CAR RIDE REGISTRATION FORM
+    </h2>
+    <div class="container2">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="name"
+            aria-describedby="emailHelp"
+            placeholder="name"
+          />
+          <div
+            *ngIf="
+              contactForm.get('name').invalid && contactForm.get('name').touched
+            "
+            class="bg-danger text-white"
+          >
+            Enter Name First
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="start" class="form-label">Start Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="start"
+            formControlName="start"
+            aria-describedby="emailHelp"
+            placeholder="Location"
+          />
+          <div
+            *ngIf="
+              contactForm.get('start').invalid &&
+              contactForm.get('start').touched
+            "
+            class="bg-danger text-white"
+          >
+            Enter a Start Location
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="end" class="form-label">Destination</label>
+          <input
+            type="text"
+            class="form-control"
+            id="end"
+            formControlName="end"
+            aria-describedby="emailHelp"
+            placeholder="Location"
+          />
+          <div
+            *ngIf="
+              contactForm.get('end').invalid && contactForm.get('end').touched
+            "
+            class="bg-danger text-white"
+          >
+            Enter an End Location
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="car" class="form-label">Car</label>
+          <input
+            type="text"
+            class="form-control"
+            id="car"
+            formControlName="car"
+            aria-describedby="emailHelp"
+            placeholder="car"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="seat" class="form-label">Seats Available</label>
+          <input
+            type="number"
+            class="form-control"
+            id="seat"
+            formControlName="seat"
+            aria-describedby="emailHelp"
+            placeholder="seats"
+            required min="1" max="10"
+          />
+          <div
+            *ngIf="
+              contactForm.get('seat').invalid && contactForm.get('seat').touched
+            "
+            class="bg-danger text-white"
+          >
+            Seats Should be greater than 0 and less than 8
+          </div>
+        </div>
+        <div class="btn-class">
+          <button
+            type="submit"
+            class="btn-class2"
+            [disabled]="contactForm.invalid"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<br />
